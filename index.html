@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon Explorer</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #020617);
+            color: #e5e7eb;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .app {
+            width: 100%;
+            max-width: 1000px;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        input {
+            padding: 12px;
+            width: 240px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 8px;
+            background: #22c55e;
+            color: #022c22;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        button:hover {
+            background: #16a34a;
+            transform: translateY(-2px);
+        }
+
+        #explorer-status {
+            text-align: center;
+            margin-top: 15px;
+            min-height: 24px;
+            color: #facc15;
+        }
+
+        .cards-grid {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .data-card {
+            background: #020617;
+            border-radius: 14px;
+            padding: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            transition: transform 0.25s;
+        }
+
+        .data-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .data-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .data-card h3 {
+            margin: 5px 0;
+            text-transform: capitalize;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #334155;
+            color: #e5e7eb;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app">
+    <h1>🎮 Pokemon Explorer</h1>
+    <p class="subtitle">ค้นหาและสุ่ม Pokémon ด้วย Public API</p>
+
+    <div class="input-group">
+        <input type="text" id="explorer-search" placeholder="ชื่อหรือ ID เช่น pikachu">
+        <button onclick="searchPokemon()">ค้นหา</button>
+        <button onclick="getRandomPokemon()">สุ่ม 6 ตัว</button>
+    </div>
+
+    <div id="explorer-status"></div>
+    <div id="explorer-grid" class="cards-grid"></div>
+</div>
+
+<script src="pokemon.js"></script>
+</body>
+</html>
